@@ -1,3 +1,5 @@
+import java.util.concurrent.Callable;
+
 public class Main {
     public static void main(String[] args) {
         // Задание 1.
@@ -60,6 +62,8 @@ public class Main {
         System.out.println(car9);
         System.out.println(car10);
 
+        Car car11 = new Car(null, " ", 0, " ", 0, " ");
+        System.out.println(car11);
 
 
 
