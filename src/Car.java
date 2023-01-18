@@ -9,12 +9,12 @@ public class Car {
     }
 
     public Car(String brand, String model, double engineVolume, String color, int year, String country) {
-        this.brand = brand;
-        this.model = model;
-        this.engineVolume = engineVolume;
-        this.color = color;
-        this.year = year;
-        this.country = country;
+        this.brand = validateCarParameters(brand);
+        this.model = validateCarParameters(model);
+        this.engineVolume = validateEgineVolume(engineVolume);
+        this.color = validateCarColor(color);
+        this.year = validateYear(year);
+        this.country = validateCarParameters(country);
     }
 
     public String getBrand() {
@@ -69,5 +69,25 @@ public class Car {
     public String toString() {
         return "Автомобиль: " + brand + " " + model + ", объем двигателя - " + engineVolume + ", цвет кузова - " +
                 color + ", год выпуска - " + year + ", страна сборки - " + country;
+    }
+
+    public static double validateEgineVolume(double value){
+        return value <= 0 ? 1.5 : value;
+    }
+
+    public static Integer validateYear(Integer value){
+        return (value == null || value <= 0) ? 2000 : value;
+    }
+
+    public static String validateString(String value, String defaultValue){
+        return (value == null || value.isBlank() || value.isEmpty()) ? defaultValue : value;
+    }
+
+    public static String validateCarParameters(String value){
+        return validateString(value, "default");
+    }
+
+    public static String validateCarColor(String value){
+        return validateString(value, "белый");
     }
 }
