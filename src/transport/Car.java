@@ -2,13 +2,8 @@ package transport;
 
 import java.util.regex.Pattern;
 
-public class Car {
-    private final String brand;
-    private final String model;
+public class Car extends Transport {
     private double engineVolume;
-    private String color;
-    private final int year;
-    private final String country;
     private String transmission;
     private final String bodyType;
     private String registrationNumber;
@@ -16,39 +11,34 @@ public class Car {
     private boolean isSummerRubber;
     private Key key;
 
-    public Car(String brand, String model, double engineVolume, String color, int year,
-               String country, String transmission, String bodyType, String registrationNumber,
-               int numberOfSeats, boolean isSummerRubber, Key key) {
-        this.brand = validateCarParameters(brand);
-        this.model = validateCarParameters(model);
-        this.engineVolume = validateEgineVolume(engineVolume);
-        this.color = validateCarColor(color);
-        this.year = validateYear(year);
-        this.country = validateCarParameters(country);
-        this.transmission = validateTransmission(transmission);
-        this.bodyType = validateBodyType(bodyType);
-        this.registrationNumber = validateCarRegistrationNumber(registrationNumber);
-        this.numberOfSeats = validateNumberOfSeats(numberOfSeats);
+    public Car(String brand, String model, String color, int year, String country, String maxSpeed, double engineVolume,
+               String transmission, String bodyType,
+               String registrationNumber, int numberOfSeats, boolean isSummerRubber, Key key) {
+        super(brand, model, color, year, country, maxSpeed);
+        this.engineVolume = engineVolume;
+        this.transmission = transmission;
+        this.bodyType = bodyType;
+        this.registrationNumber = registrationNumber;
+        this.numberOfSeats = numberOfSeats;
         this.isSummerRubber = isSummerRubber;
         this.key = key;
     }
-    public String getBrand() {
-        return brand;
+
+    @Override
+    public String toString() {
+        return super.toString() + ", " +
+                "engineVolume=" + engineVolume +
+                ", transmission='" + transmission + '\'' +
+                ", bodyType='" + bodyType + '\'' +
+                ", registrationNumber='" + registrationNumber + '\'' +
+                ", numberOfSeats=" + numberOfSeats +
+                ", isSummerRubber=" + isSummerRubber +
+                ", key=" + key +
+                '}';
     }
-    public String getModel() {
-        return model;
-    }
+
     public double getEngineVolume() {
         return engineVolume;
-    }
-    public String getColor() {
-        return color;
-    }
-    public int getYear() {
-        return year;
-    }
-    public String getCountry() {
-        return country;
     }
     public String getTransmission() {
         return transmission;
@@ -64,9 +54,6 @@ public class Car {
     }
     public void setEngineVolume(double engineVolume) {
         this.engineVolume = validateEgineVolume(engineVolume);
-    }
-    public void setColor(String color) {
-        this.color = validateCarColor(color);
     }
     public void setTransmission(String transmission) {
         this.transmission = validateTransmission(transmission);
@@ -96,13 +83,7 @@ public class Car {
             return "неверный номер";
         }
     }
-    @Override
-    public String toString() {
-        return "Автомобиль: " + brand + " " + model + ", объем двигателя - " + engineVolume + ", цвет кузова - " +
-                color + ", год выпуска - " + year + ", страна сборки - " + country + ", коробка передач - "
-                + transmission + ", тип кузова - " + bodyType + ", регистрационный номер - " + registrationNumber +
-                ", количество мест - " + numberOfSeats + ", резина - " + isSummerRubber + ", " + key;
-    }
+
     public static double validateEgineVolume(double value){
         return value <= 0 ? 1.5 : value;
     }
