@@ -22,7 +22,7 @@ public class DriverC extends Driver {
     }
     @Override
     public String toString() {
-        return "C " + fullName + ", имеющий водительское удостоверение " + hasDriverLicense +
+        return "категории C " + fullName + ", имеющий водительское удостоверение " + hasDriverLicense +
                 ", со стажем вождения " + drivingExperienceInYears + " лет ";
     }
 }

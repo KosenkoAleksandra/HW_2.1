@@ -2,12 +2,18 @@ package transport;
 
 import static transport.ValidateUtils.*;
 
-public abstract class Transport {
+public abstract class Transport <T extends Driver> {
     private final String brand;
     private final String model;
     private double engineVolume;
+    private T driver;
 
-    public Transport(String brand, String model, double engineVolume) {
+
+    public Transport(T driver,
+                     String brand,
+                     String model,
+                     double engineVolume) {
+        this.driver = driver;
         this.brand = validateCarParameters(brand);
         this.model = validateCarParameters(model);
         this.engineVolume = validateEngineVolume(engineVolume);
@@ -31,12 +37,12 @@ public abstract class Transport {
 
     @Override
     public String toString() {
-        return "Транспортное средство: " + "марка - " + brand +
-                ", модель - " + model + ", объём двигателя - " + engineVolume;
+        return "Водитель " + driver + "управляет транспортным средством: " + "марка - " + brand +
+                ", модель - " + model + ", объём двигателя - " + engineVolume + ", будет участвовать в заезде.";
     }
 
-    abstract void startMoving ();
-    abstract void finishMoving ();
+    abstract void startMovingAuto ();
+    abstract void finishMovingAuto ();
 
 
     }

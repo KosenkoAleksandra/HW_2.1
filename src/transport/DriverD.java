@@ -23,7 +23,7 @@ public class DriverD extends Driver {
     }
     @Override
     public String toString() {
-        return "D " + fullName + ", имеющий водительское удостоверение " + hasDriverLicense +
+        return "категории D " + fullName + ", имеющий водительское удостоверение " + hasDriverLicense +
                 ", со стажем вождения " + drivingExperienceInYears + " лет ";
     }
 }

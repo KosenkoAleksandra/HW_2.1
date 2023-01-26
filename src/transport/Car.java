@@ -1,16 +1,19 @@
 package transport;
 
-public class Car extends Transport implements Competing {
-    public Car(String brand, String model, double engineVolume) {
-        super(brand, model, engineVolume);
+import static transport.ValidateUtils.validateCarParameters;
+import static transport.ValidateUtils.validateEngineVolume;
+
+public class Car  extends Transport implements Competing {
+    public Car(DriverB driver, String brand, String model, double engineVolume) {
+        super(driver, brand, model, engineVolume);
     }
 
     @Override
-    void startMoving() {
+    void startMovingAuto() {
         System.out.println("Легковой автомобиль " + getBrand() + " " + getModel() + " начал движение");}
 
     @Override
-    void finishMoving() {
+    void finishMovingAuto() {
         System.out.println("Легковой автомобиль " + getBrand() + " " + getModel() + " закончил движение");
     }
 

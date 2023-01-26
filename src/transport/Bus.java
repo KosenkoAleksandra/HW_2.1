@@ -1,17 +1,17 @@
 package transport;
 
-public class Bus <DriverD> extends Transport implements Competing {
-    public Bus(String brand, String model, double engineVolume) {
-        super(brand, model, engineVolume);
+public class Bus extends Transport implements Competing {
+    public Bus(DriverD driver, String brand, String model, double engineVolume) {
+        super(driver, brand, model, engineVolume);
     }
 
     @Override
-    void startMoving() {
+    void startMovingAuto() {
         System.out.println("Автобус " + getBrand() + " " + getModel() + " начал движение");
     }
 
     @Override
-    void finishMoving() {
+    void finishMovingAuto() {
         System.out.println("Автобус " + getBrand() + " " + getModel() +  " закончил движение");
     }
 
@@ -29,4 +29,5 @@ public class Bus <DriverD> extends Transport implements Competing {
     public void maxSpeed() {
         System.out.println("Максимальная скорость автобуса "  + getBrand() + " " + getModel());
     }
+
 }

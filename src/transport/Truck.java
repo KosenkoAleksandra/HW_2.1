@@ -1,17 +1,17 @@
 package transport;
 
-public class Truck <DriverC> extends Transport implements Competing {
-    public Truck(String brand, String model, double engineVolume) {
-        super(brand, model, engineVolume);
+public class Truck extends Transport implements Competing {
+    public Truck(DriverC driver, String brand, String model, double engineVolume) {
+        super(driver, brand, model, engineVolume);
     }
 
     @Override
-    void startMoving() {
+    void startMovingAuto() {
         System.out.println("Грузовой автомобиль " + getBrand() + " " + getModel() + " начал движение");
     }
 
     @Override
-    void finishMoving() {
+    void finishMovingAuto() {
         System.out.println("Грузовой автомобиль " + getBrand() + " " + getModel() + " закончил движение");
     }
 
