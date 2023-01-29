@@ -1,8 +1,18 @@
 package transport;
 
 public class Truck extends Transport <DriverC> implements Competing {
-    public Truck(DriverC driver, String brand, String model, double engineVolume) {
+    private LoadType loadType;
+    public Truck(DriverC driver, String brand, String model, double engineVolume, LoadType loadType) {
         super(driver, brand, model, engineVolume);
+        this.loadType = loadType;
+    }
+
+    public LoadType getLoadType() {
+        return loadType;
+    }
+
+    public void setLoadType(LoadType loadType) {
+        this.loadType = loadType;
     }
 
     @Override
@@ -30,5 +40,12 @@ public class Truck extends Transport <DriverC> implements Competing {
         System.out.println("Максимальная скорость грузового автомобиля " + getBrand() + " " + getModel());
     }
 
-
+    @Override
+    public void printType() {
+            if (getLoadType() == null) {
+                System.out.println("Данных по транспортному средству недостаточно");
+            } else {
+                System.out.println(getLoadType());
+            }
+    }
 }

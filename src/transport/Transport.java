@@ -43,6 +43,7 @@ public abstract class Transport <T extends Driver> {
 
     abstract void startMovingAuto ();
     abstract void finishMovingAuto ();
+    public abstract void printType();
 
 
     }

@@ -4,8 +4,18 @@ import static transport.ValidateUtils.validateCarParameters;
 import static transport.ValidateUtils.validateEngineVolume;
 
 public class Car  extends Transport <DriverB> implements Competing {
-    public Car(DriverB driver, String brand, String model, double engineVolume) {
+    private BodyType bodyType;
+    public Car(DriverB driver, String brand, String model, double engineVolume, BodyType bodyType) {
         super(driver, brand, model, engineVolume);
+        this.bodyType = bodyType;
+    }
+
+    public BodyType getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(BodyType bodyType) {
+        this.bodyType = bodyType;
     }
 
     @Override
@@ -31,6 +41,12 @@ public class Car  extends Transport <DriverB> implements Competing {
     public void maxSpeed() {
         System.out.println("Максимальная скорость легкового автомобиля " + getBrand() + " " + getModel());
     }
-
-
+    @Override
+    public void printType(){
+        if (getBodyType() == null) {
+            System.out.println("Данных по транспортному средству недостаточно");
+        } else {
+            System.out.println(getBodyType());
+        }
+    }
 }
