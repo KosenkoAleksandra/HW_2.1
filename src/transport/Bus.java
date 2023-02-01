@@ -48,4 +48,10 @@ public class Bus extends Transport <DriverD> implements Competing {
                 System.out.println(getBusCapacity());
             }
     }
+
+    @Override
+    void passDiagnostics() throws TransportTypeException {
+        throw new TransportTypeException("Автобусы проходить диагностику не должны");
+
+    }
 }

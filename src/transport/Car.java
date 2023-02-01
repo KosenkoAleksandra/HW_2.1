@@ -5,6 +5,7 @@ import static transport.ValidateUtils.validateEngineVolume;
 
 public class Car  extends Transport <DriverB> implements Competing {
     private BodyType bodyType;
+
     public Car(DriverB driver, String brand, String model, double engineVolume, BodyType bodyType) {
         super(driver, brand, model, engineVolume);
         this.bodyType = bodyType;
@@ -20,7 +21,8 @@ public class Car  extends Transport <DriverB> implements Competing {
 
     @Override
     void startMovingAuto() {
-        System.out.println("Легковой автомобиль " + getBrand() + " " + getModel() + " начал движение");}
+        System.out.println("Легковой автомобиль " + getBrand() + " " + getModel() + " начал движение");
+    }
 
     @Override
     void finishMovingAuto() {
@@ -41,12 +43,18 @@ public class Car  extends Transport <DriverB> implements Competing {
     public void maxSpeed() {
         System.out.println("Максимальная скорость легкового автомобиля " + getBrand() + " " + getModel());
     }
+
     @Override
-    public void printType(){
+    public void printType() {
         if (getBodyType() == null) {
             System.out.println("Данных по транспортному средству недостаточно");
         } else {
             System.out.println(getBodyType());
         }
+    }
+
+    @Override
+    void passDiagnostics() {
+        System.out.println("Легковой автомобиль прошел диагностику");
     }
 }

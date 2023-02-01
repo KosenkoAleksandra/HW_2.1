@@ -48,4 +48,9 @@ public class Truck extends Transport <DriverC> implements Competing {
                 System.out.println(getLoadType());
             }
     }
+
+    @Override
+    void passDiagnostics() {
+        System.out.println("Грузовой автомобиль прошел диагностику");
+    }
 }
