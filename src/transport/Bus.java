@@ -1,8 +1,18 @@
 package transport;
 
 public class Bus extends Transport <DriverD> implements Competing {
-    public Bus(DriverD driver, String brand, String model, double engineVolume) {
+    private BusCapacity busCapacity;
+    public Bus(DriverD driver, String brand, String model, double engineVolume, BusCapacity busCapacity) {
         super(driver, brand, model, engineVolume);
+        this.busCapacity= busCapacity;
+    }
+
+    public BusCapacity getBusCapacity() {
+        return busCapacity;
+    }
+
+    public void setBusCapacity(BusCapacity busCapacity) {
+        this.busCapacity = busCapacity;
     }
 
     @Override
@@ -30,4 +40,12 @@ public class Bus extends Transport <DriverD> implements Competing {
         System.out.println("Максимальная скорость автобуса "  + getBrand() + " " + getModel());
     }
 
+    @Override
+    public void printType() {
+            if (getBusCapacity() == null) {
+                System.out.println("Данных по транспортному средству недостаточно");
+            } else {
+                System.out.println(getBusCapacity());
+            }
+    }
 }
