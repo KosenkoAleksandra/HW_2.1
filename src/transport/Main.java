@@ -47,5 +47,9 @@ public class Main {
         System.out.println(truck3);
         System.out.println(truck4);
 
+        car1.passDiagnostics();
+        truck1.passDiagnostics();
+        bus1.passDiagnostics();
+
     }
 }
