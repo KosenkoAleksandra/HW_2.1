@@ -1,9 +1,16 @@
 package transport;
 
+import java.util.List;
+
 public class Bus extends Transport <DriverD> implements Competing {
     private BusCapacity busCapacity;
-    public Bus(DriverD driver, String brand, String model, double engineVolume, BusCapacity busCapacity) {
-        super(driver, brand, model, engineVolume);
+    public Bus(DriverD driver,
+               String brand,
+               String model,
+               double engineVolume,
+               List<Mechanic> mechanicList,
+               BusCapacity busCapacity) {
+        super(driver, brand, model, engineVolume, mechanicList);
         this.busCapacity= busCapacity;
     }
 
@@ -50,8 +57,14 @@ public class Bus extends Transport <DriverD> implements Competing {
     }
 
     @Override
-    void passDiagnostics() throws TransportTypeException {
+    String passDiagnostics() throws TransportTypeException {
         throw new TransportTypeException("Автобусы проходить диагностику не должны");
 
     }
+
+    @Override
+    public String repair() {
+        return "Ремонт автобуса";
+    }
+
 }
