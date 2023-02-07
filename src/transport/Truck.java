@@ -1,11 +1,19 @@
 package transport;
 
+import java.util.List;
+
 public class Truck extends Transport <DriverC> implements Competing {
     private LoadType loadType;
-    public Truck(DriverC driver, String brand, String model, double engineVolume, LoadType loadType) {
-        super(driver, brand, model, engineVolume);
+    public Truck(DriverC driver,
+                 String brand,
+                 String model,
+                 double engineVolume,
+                 List<Mechanic> mechanicList,
+                 LoadType loadType) {
+        super(driver, brand, model, engineVolume, mechanicList);
         this.loadType = loadType;
     }
+
 
     public LoadType getLoadType() {
         return loadType;
@@ -50,7 +58,13 @@ public class Truck extends Transport <DriverC> implements Competing {
     }
 
     @Override
-    void passDiagnostics() {
-        System.out.println("Грузовой автомобиль прошел диагностику");
+    String passDiagnostics() {
+        return "Грузовой автомобиль прошел диагностику";
     }
+
+    @Override
+    public String repair() {
+        return "Ремонт грузового автомобиля";
+    }
+
 }

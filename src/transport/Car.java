@@ -1,13 +1,20 @@
 package transport;
 
+import java.util.List;
+
 import static transport.ValidateUtils.validateCarParameters;
 import static transport.ValidateUtils.validateEngineVolume;
 
 public class Car  extends Transport <DriverB> implements Competing {
     private BodyType bodyType;
 
-    public Car(DriverB driver, String brand, String model, double engineVolume, BodyType bodyType) {
-        super(driver, brand, model, engineVolume);
+    public Car(DriverB driver,
+               String brand,
+               String model,
+               double engineVolume,
+               List<Mechanic> mechanicList,
+               BodyType bodyType) {
+        super(driver, brand, model, engineVolume, mechanicList);
         this.bodyType = bodyType;
     }
 
@@ -53,8 +60,14 @@ public class Car  extends Transport <DriverB> implements Competing {
         }
     }
 
-    @Override
-    void passDiagnostics() {
-        System.out.println("Легковой автомобиль прошел диагностику");
+    String passDiagnostics() {
+        return "Легковой автомобиль прошел диагностику";
     }
+
+    @Override
+    public String repair() {
+        return "Ремонт легкового автомобиля";
+    }
+
+
 }
