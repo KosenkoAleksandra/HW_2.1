@@ -78,5 +78,17 @@ public class Main {
         for (int j = 0; j <= transportsOnSTO.size(); j++) {
             sto.carryOutAVehicleInspection(transportsOnSTO);
         }
+
+        System.out.println("----------------------------");
+
+        Map<Transport, List<Mechanic>> mapTransport = new HashMap<>();
+        mapTransport.put(car1, car1.getMechanicList());
+        mapTransport.put(bus2, bus2.getMechanicList());
+        mapTransport.put(truck4, truck4.getMechanicList());
+
+        for (Map.Entry<Transport, List<Mechanic>> map : mapTransport.entrySet()){
+            System.out.println("Транспортное средство -  " + map.getKey().getBrand() + " " + map.getKey().getModel() +
+                    ", механик - " + map.getValue().get(0));
+        }
 }
 }
