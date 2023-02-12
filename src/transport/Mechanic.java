@@ -1,5 +1,7 @@
 package transport;
 
+import java.util.Objects;
+
 public class Mechanic {
     public String nameMechanic;
     public String surnameMechanic;
@@ -42,4 +44,5 @@ public class Mechanic {
     public String toString() {
         return "" + nameMechanic + " " + surnameMechanic + ", место работы " + placeOfWork;
     }
+
 }

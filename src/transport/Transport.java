@@ -2,6 +2,7 @@ package transport;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static transport.ValidateUtils.*;
 
@@ -68,5 +69,5 @@ public abstract class Transport <T extends Driver> {
         return true;
     }
 
-    }
+}
 
