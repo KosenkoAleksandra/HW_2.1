@@ -90,5 +90,19 @@ public class Main {
             System.out.println("Транспортное средство -  " + map.getKey().getBrand() + " " + map.getKey().getModel() +
                     ", механик - " + map.getValue().get(0));
         }
+
+        System.out.println("----------------------------------");
+        Set <Driver> driverSet = new HashSet<>();
+        driverSet.add(driverB1);
+        driverSet.add(driverC2);
+        driverSet.add(driverD4);
+        driverSet.add(driverB1);
+        driverSet.add(driverB2);
+        driverSet.add(driverC1);
+
+        Iterator<Driver> driverIterator = driverSet.iterator();
+        while (driverIterator.hasNext()) {
+            System.out.println(driverIterator.next());
+        }
 }
 }
